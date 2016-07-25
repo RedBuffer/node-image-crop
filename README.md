@@ -1,6 +1,32 @@
 # node-image-crop
 Script for cropping and uploading images in NodeJs. 
 
+
+## Setup Guide
+*node-image-crop* is image cropping and uploading plugin for nodejs based application so as a first step, you must have nodejs installed. The script includes following nodejs dependencies:
+
+1.	fs
+2.	gm
+3.	multer
+4.	graphicsmagick
+
+You can install all of these dependencies via the following commands:
+```
+npm install --save fs
+npm install --save gm
+npm install --save multer
+sudo apt-get install graphicsmagick
+```
+
+Don't forget to require these depencies in *app.js* and relevant routes file (*index.js* in my case) as I did, see [app.js](https://github.com/RedBuffer/node-image-crop/blob/master/app.js) and [index.js](https://github.com/RedBuffer/node-image-crop/blob/master/routes/index.js)
+
+You must need to copy the stylesheets, image and scripts from [public folder](https://github.com/RedBuffer/node-image-crop/tree/master/public)
+
+Either copy the page [index.html](https://raw.githubusercontent.com/RedBuffer/node-image-crop/master/views/index.jade) to your project or just copy the content to place into your html file.
+
+Create the folder *uploads* at your root directory. Don't forget to create its static path in [app.js](https://github.com/RedBuffer/node-image-crop/blob/master/app.js)
+
+
 ## What exactly *node-image-crop* do?
 The script gives you simple user friendly interface to
 
@@ -23,37 +49,6 @@ Here's the detailed step by step guide:
 
 - 	Click *Refresh* to refresh the form and repeating process
 
-## Setup Guide
-*node-image-crop* is image cropping and uploading plugin for nodejs based application so as a first step, you must have nodejs installed. The script includes following nodejs dependencies:
-
-1.	fs
-2.	gm
-3.	multer
-4.	graphicsmagick
-
-You can install all of these dependencies via the following commands:
-```npm install --save fs```
-```npm install --save gm```
-```npm install --save multer```
-```sudo apt-get install graphicsmagick```
-
-Don't forget to require these depencies in *app.js* and relevant routes file (*index.js* in my case) as I did, see [app.js](https://github.com/RedBuffer/node-image-crop/blob/master/app.js) and [index.js](https://github.com/RedBuffer/node-image-crop/blob/master/routes/index.js)
-
-You must need to copy the stylesheets, image and scripts from [public folder](https://github.com/RedBuffer/node-image-crop/tree/master/public)
-
-Either copy the page [index.html](https://raw.githubusercontent.com/RedBuffer/node-image-crop/master/views/index.jade) to your project or just copy the content to place into your html file.
-
-Create the folder *uploads* at your root directory. Don't forget to create its static path in [app.js](https://github.com/RedBuffer/node-image-crop/blob/master/app.js)
-
 
 
 PS: Feel free to fork, highlight the bugs (if any), suggest improvements and make changes where required.
-
-
-
-
-
-
-
-
-
