@@ -1,0 +1,73 @@
+doctype html
+html
+    head
+        title Image Upload with Crop
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7', crossorigin='anonymous')
+        link(rel='stylesheet', href='css/style.css')
+        script(src='https://code.jquery.com/jquery-2.2.4.min.js', integrity='sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=', crossorigin='anonymous')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js', integrity='sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS', crossorigin='anonymous')
+        script(type='text/javascript', src='js/fileuploader.js')
+        script(type='text/javascript', src='js/jquery.imgareaselect.js')
+        script(type='text/javascript', src='js/script.js')
+    body
+
+        //==========================================//
+        //          Image placeholder               //
+        //==========================================//
+        .col-xs-12.col-sm-3.input-label.no-left-padding
+            h4 Upload Image
+        #update_photo.col-xs-12.col-sm-9.zero-padding
+            #thumb_preview_holder
+                img#thumb_preview(src='images/placeholder.png', alt='Thumbnail Preview', onclick='img_uploader()')
+                input#filename(type='hidden', name='filetype', value='')
+                input#filetype(type='hidden', name='filename', value='')
+                input#x1(type='hidden', name='x1', value='')
+                input#y1(type='hidden', name='y1', value='')
+                input#x2(type='hidden', name='x2', value='')
+                input#y2(type='hidden', name='y2', value='')
+                input#w(type='hidden', name='w', value='')
+                input#h(type='hidden', name='h', value='')
+
+            button.btn.btn-primary.upload-btn(onclick="uploadImage();" disabled=true)
+                | Upload
+                .space
+                span.glyphicon.glyphicon-upload
+
+            button.btn.btn-primary(onclick="refreshImageUploadForm();")
+                | Refresh
+                .space
+                span.glyphicon.glyphicon-refresh
+
+            div.success-message Image has been uploaded!
+
+
+        //==========================================//
+        //      Image uploading & cropping modal    //
+        //==========================================//
+        #img-uploader.modal.fade.zero-padding
+            .modal-dialog
+                .modal-content
+                    .modal-header
+                        button.close(type='button', data-dismiss='modal', aria-hidden='true', onclick='hide_opacity();image_edit_mode=false;cancel_upload()') ×
+                        h4.modal-title Upload Image
+                    .modal-body.crop_area.text-center
+                        #uploader-section
+                            .product_image
+                                img#thumbnails.thumbnails(src='', style='display:none')
+                            #file-uploader
+                                input#file_obj(type='file', name='profile_pic')
+                        #crop-section(style='display:none')
+                            img#thumbnail(src='', alt='Create Thumbnail')
+                    .modal-footer
+                        button.btn.btn-sm.btn-primary(type='button', data-dismiss='modal', aria-hidden='true', onclick='hide_opacity();cancel_upload();image_edit_mode=false')
+                            span Cancel
+                            span  
+                            span.fa.fa-remove.zero-margin
+                        button.btn.btn-sm.btn-primary(type='button', onclick='hide_opacity();discard_upload();image_edit_mode=false')
+                            span Discard
+                            span  
+                            span.fa.fa-trash.zero-margin
+                        button#save_thumb.btn.btn-sm.btn-primary(type='button', data-dismiss='modal', aria-hidden='true', onclick='hide_opacity();image_edit_mode=false')
+                            span Done
+                            span  
+                            span.fa.fa-check.zero-margin
