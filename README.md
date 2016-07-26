@@ -38,17 +38,17 @@ Here's the detailed step by step guide:
 
 -	Click on the image placeholder to select an image from disk. It opens up a [bootstrap modal](http://getbootstrap.com/javascript/#modals) with ability to browse images from disk and select the one to upload.
 
--	Crop the select area of the selected image.
+-	Crop the desired area of the selected image.
 
 -	Click the appropriate button after cropping. 
   -	**Cancel:** Closes the modal and removes the selected image
   -	**Discard:** Doesn't close the modal rather just removes the selected image. 
-  -	**Done:** Confirms cropping area, saves the ratio by and closes the modal.
+  -	**Done:** Confirms cropping area, saves the cropped angles and closes the modal.
 
--	Click *Upload* button to upload the image to server.
+-	Click *Upload* button to upload image to the server and places the image in *uploads* folder at root.
 
-- 	Click *Refresh* to refresh the form and repeating process
+- 	Clicking *Refresh* refreshes the form and enables you to repeat the process.
 
 
 
-PS: Feel free to fork, highlight the bugs (if any), suggest improvements and make changes where required.
+*PS: Feel free to fork, highlight the bugs (if any), suggest improvements and make changes where required.*
