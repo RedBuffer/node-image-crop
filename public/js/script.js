@@ -29,7 +29,7 @@ $(function(){
 
 // Show modal for uploading new image
 function img_uploader(){
-    $("#img-uploader").modal({keyboard: false});
+    $("#img-uploader").modal({keyboard: false, backdrop: 'static'});
     image_edit_mode = true;
 }
 var image_edit_mode = false;
